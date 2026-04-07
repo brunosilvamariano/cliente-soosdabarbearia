@@ -122,8 +122,9 @@
 <!-- ======================== NAV ======================== -->
 <nav class="nav" id="mainNav" aria-label="Navegação principal">
   <div class="nav__inner">
+
     <a href="#home" class="nav__logo" aria-label="Só os da Barbearia — início">
-      <img src="images/logo/logo_header.svg" alt="">
+      <img src="images/logo/logo_header.svg" alt="Só os da Barbearia">
     </a>
 
     <ul class="nav__links" role="list">
@@ -135,36 +136,51 @@
       <li><a href="#contato">Contato</a></li>
     </ul>
 
-    <a href="https://wa.me/5547991597258?text=Olá!%20Gostaria%20de%20agendar%20um%20horário."
-       class="btn btn-gold nav__cta"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Agendar pelo WhatsApp">
-      Agendar
-    </a>
+    <div class="nav__right">
+      <a href="https://wa.me/5547991597258?text=Olá!%20Gostaria%20de%20agendar%20um%20horário."
+         class="nav__cta"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Agendar pelo WhatsApp">
+        <span>Agendar</span>
+        <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+      </a>
 
-    <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+    </div>
+
   </div>
 </nav>
 
 <!-- Mobile menu -->
 <div class="nav__mobile" id="navMobile" role="dialog" aria-modal="true" aria-label="Menu de navegação">
-  <ul class="nav__mobile-links" role="list">
-     <li><a href="#home" class="nav__mobile-link">Início</a></li>
-    <li><a href="#beneficios" class="nav__mobile-link">Benefícios</a></li>
-    <li><a href="#servicos" class="nav__mobile-link">Serviços</a></li>
-    <li><a href="#precos" class="nav__mobile-link">Preços</a></li>
-    <li><a href="#sobre" class="nav__mobile-link">Sobre</a></li>
-    <li><a href="#contato" class="nav__mobile-link">Contato</a></li>
-  </ul>
-  <div class="nav__mobile-divider" aria-hidden="true"></div>
-  <a href="https://wa.me/5547991597258?text=Olá!%20Gostaria%20de%20agendar%20um%20horário."
-     class="btn btn-gold"
-     target="_blank" rel="noopener noreferrer">
-    Agendar Agora
-  </a>
+  <div class="nav__mobile-inner">
+
+    <nav class="nav__mobile-nav">
+      <ul role="list">
+        <li><a href="#home"       class="nav__mobile-link"><em>01</em>Início</a></li>
+        <li><a href="#beneficios" class="nav__mobile-link"><em>02</em>Benefícios</a></li>
+        <li><a href="#servicos"   class="nav__mobile-link"><em>03</em>Serviços</a></li>
+        <li><a href="#precos"     class="nav__mobile-link"><em>04</em>Preços</a></li>
+        <li><a href="#sobre"      class="nav__mobile-link"><em>05</em>Sobre</a></li>
+        <li><a href="#contato"    class="nav__mobile-link"><em>06</em>Contato</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav__mobile-footer">
+      <a href="https://wa.me/5547991597258?text=Olá!%20Gostaria%20de%20agendar%20um%20horário."
+         class="nav__mobile-cta"
+         target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-whatsapp" aria-hidden="true"></i>
+        Agendar Agora
+      </a>
+      <p class="nav__mobile-tagline">Joinville — SC</p>
+    </div>
+
+  </div>
 </div>
 
 <!-- ======================== MAIN ======================== -->
