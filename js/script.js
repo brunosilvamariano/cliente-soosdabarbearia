@@ -4,9 +4,29 @@ const toggle = document.getElementById('navToggle');
 const mobile = document.getElementById('navMobile');
 const mobileLinks = document.querySelectorAll('.nav__mobile-link');
 
+// ======================== FABs ========================
+const scrollTopBtn    = document.getElementById('scrollTop');
+const progressFill    = document.getElementById('fabProgressFill');
+const CIRCUMFERENCE   = 2 * Math.PI * 25; // r=25 → ≈ 157
+
 window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 40);
-  document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
+  const scrolled  = window.scrollY;
+  const total     = document.documentElement.scrollHeight - window.innerHeight;
+  const progress  = total > 0 ? scrolled / total : 0;
+
+  // nav scrolled
+  nav.classList.toggle('scrolled', scrolled > 40);
+
+  // scroll-top visibilidade
+  scrollTopBtn.classList.toggle('visible', scrolled > 400);
+
+  // anel de progresso
+  if (progressFill) {
+    progressFill.style.strokeDasharray = `${progress * CIRCUMFERENCE} ${CIRCUMFERENCE}`;
+  }
+
+  // scroll-to-top do botão scroll
+  document.getElementById('scrollTop').classList.toggle('visible', scrolled > 400);
 }, { passive: true });
 
 toggle.addEventListener('click', () => {
@@ -40,7 +60,7 @@ const io = new IntersectionObserver(entries => {
 sections.forEach(s => io.observe(s));
 
 // ======================== SCROLL TO TOP ========================
-document.getElementById('scrollTop').addEventListener('click', () => {
+scrollTopBtn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 

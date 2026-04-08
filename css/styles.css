@@ -1574,3 +1574,297 @@ img { max-width: 100%; display: block; }
   outline: 2px solid var(--gold);
   outline-offset: 3px;
 }
+/* ============================================================
+   FAB STACK — voltar ao topo (cima) + WhatsApp (baixo)
+   Alinhamento via container flex, tamanho único 52 px
+============================================================ */
+
+.fab-stack {
+  position: fixed;
+  right: 1.6rem;
+  bottom: 1.8rem;
+  z-index: 950;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .75rem;
+}
+
+/* ── base comum ── */
+.fab {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: transform .3s var(--ease-out), box-shadow .3s ease;
+}
+.fab:active { transform: scale(.93) !important; }
+
+/* ícone centralizado */
+.fab__inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  line-height: 1;
+  transition: transform .3s var(--ease-out), color .2s ease;
+}
+
+/* ============================================================
+   VOLTAR AO TOPO
+============================================================ */
+.fab--top {
+  background: var(--surface2);
+  color: var(--gold);
+  box-shadow: 0 2px 12px rgba(0,0,0,.5);
+
+  /* oculto por padrão — aparece ao scroll */
+  opacity: 0;
+  transform: translateY(10px) scale(.82);
+  pointer-events: none;
+  transition:
+    opacity   .4s ease,
+    transform .4s var(--ease-out),
+    box-shadow .25s ease;
+}
+
+.fab--top.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* borda dourada via outline animado */
+.fab--top::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(201,168,76,.3);
+  transition: border-color .25s ease, inset .25s ease;
+}
+.fab--top:hover::after {
+  inset: -3px;
+  border-color: var(--gold);
+}
+.fab--top:hover {
+  box-shadow: 0 6px 22px rgba(201,168,76,.35);
+}
+.fab--top:hover .fab__inner {
+  transform: translateY(-2px);
+  color: var(--gold-lt);
+}
+
+/* anel de progresso SVG */
+.fab__progress {
+  position: absolute;
+  inset: -5px;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+.fab__progress-track {
+  fill: none;
+  stroke: rgba(201,168,76,.12);
+  stroke-width: 2;
+}
+.fab__progress-fill {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 0 157;          /* circunferência r=25 ≈ 157 */
+  transition: stroke-dasharray .15s linear;
+}
+
+/* ============================================================
+   WHATSAPP
+============================================================ */
+.fab--wa {
+  background: #1db954;
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(29,185,84,.4);
+}
+.fab--wa:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 8px 28px rgba(29,185,84,.55);
+}
+.fab--wa:hover .fab__label {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+  pointer-events: auto;
+}
+.fab--wa:hover .fab__inner { transform: rotate(-10deg) scale(1.1); }
+
+/* anel de pulso */
+.fab__pulse {
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2px solid rgba(29,185,84,.55);
+  animation: fab-pulse 2.6s ease-out infinite;
+  z-index: 0;
+}
+@keyframes fab-pulse {
+  0%   { transform: scale(1);    opacity: .8; }
+  65%  { transform: scale(1.45); opacity: 0;  }
+  100% { transform: scale(1.45); opacity: 0;  }
+}
+
+/* label lateral */
+.fab__label {
+  position: absolute;
+  right: calc(100% + .85rem);
+  top: 50%;
+  transform: translateY(-50%) translateX(8px);
+  white-space: nowrap;
+  background: var(--surface2);
+  color: var(--ivory);
+  font-family: var(--font-body);
+  font-size: .72rem;
+  font-weight: 400;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: .42rem .9rem;
+  border-radius: 30px;
+  border: 1px solid rgba(201,168,76,.18);
+  box-shadow: 0 3px 12px rgba(0,0,0,.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .22s ease, transform .22s ease;
+  z-index: 10;
+}
+/* setinha */
+.fab__label::after {
+  content: '';
+  position: absolute;
+  right: -9px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-left-color: var(--surface2);
+}
+
+/* ============================================================
+   MOBILE
+============================================================ */
+@media (max-width: 480px) {
+  .fab-stack  { right: 1rem; bottom: 1.25rem; gap: .6rem; }
+  .fab        { width: 48px; height: 48px; }
+  .fab__inner { font-size: 1.2rem; }
+  .fab__label { display: none; }
+}
+
+/* ───── REVIEWS ───── */
+/* ===== VARIÁVEIS (caso não tenha) ===== */
+
+/* ===== SEÇÃO ===== */
+.avaliacoes {
+  background: var(--white);
+  padding: 50px 15px;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ===== TÍTULO ===== */
+ .sh5 {
+  color: var(--black) !important;
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+/* ===== WRAPPER ===== */
+.taggbox-wrapper {
+  width: 100%;
+}
+
+/* ===== REMOVE ESPAÇO DO WIDGET ===== */
+.tgb-widget {
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+/* ===== HEADER (nota geral) ===== */
+.tgb-header {
+  padding: 10px 15px !important;
+}
+
+/* ===== GRID MAIS COMPACTO ===== */
+.tgb-feed {
+  gap: 12px !important;
+}
+
+/* ===== CARD ===== */
+.tgb-post {
+  background: var(--dark2) !important;
+  padding: 14px !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(255,255,255,.05) !important;
+  transition: 0.3s;
+}
+
+/* HOVER */
+.tgb-post:hover {
+  transform: translateY(-3px);
+}
+
+/* ===== TEXTO ===== */
+.tgb-post-text {
+  font-size: 0.85rem !important;
+  line-height: 1.3 !important;
+  color: var(--off) !important;
+  margin-bottom: 10px !important;
+}
+
+/* ===== ESTRELAS ===== */
+.tgb-stars {
+  color: var(--gold) !important;
+  font-size: 11px !important;
+  margin-bottom: 6px !important;
+}
+
+/* ===== AUTOR ===== */
+.tgb-user-info {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+/* ===== AVATAR ===== */
+.tgb-user-avatar {
+  width: 28px !important;
+  height: 28px !important;
+  border-radius: 50% !important;
+}
+
+/* ===== NOME ===== */
+.tgb-user-name {
+  font-size: 0.75rem !important;
+  color: var(--white) !important;
+  font-weight: 500 !important;
+}
+
+/* ===== REMOVE ELEMENTOS INÚTEIS ===== */
+.tgb-add-review,
+.tgb-powered-by,
+.tgb-review-date,
+.tgb-source-icon {
+  display: none !important;
+}
