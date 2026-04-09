@@ -797,7 +797,7 @@ img { max-width: 100%; display: block; }
   font-family: var(--font-display);
   font-size: clamp(2.4rem, 5vw, 5rem);
   font-weight: 300;
-  color: var(--white);
+  color: var(--ivory);
   line-height: 1.0;
   margin-bottom: 1.25rem;
 }
@@ -1169,7 +1169,7 @@ img { max-width: 100%; display: block; }
 ============================== */
 .pricing {
   padding: var(--section-pad) 0;
-  background: var(--white);
+  background: var(--ivory);
 }
 
 .pricing__header { text-align: center; margin-bottom: clamp(3rem, 6vw, 5rem); }
@@ -1265,7 +1265,7 @@ img { max-width: 100%; display: block; }
 ============================== */
 .contact {
   padding: clamp(3rem, 6vw, 5rem) 0;
-  background: var(--white);
+  background: var(--ivory);
 }
 
 .contact__inner {
@@ -1593,8 +1593,8 @@ img { max-width: 100%; display: block; }
 /* ── base comum ── */
 .fab {
   position: relative;
-  width: 52px;
-  height: 52px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   border: none;
   padding: 0;
@@ -1653,17 +1653,8 @@ img { max-width: 100%; display: block; }
   border: 1.5px solid rgba(201,168,76,.3);
   transition: border-color .25s ease, inset .25s ease;
 }
-.fab--top:hover::after {
-  inset: -3px;
-  border-color: var(--gold);
-}
-.fab--top:hover {
-  box-shadow: 0 6px 22px rgba(201,168,76,.35);
-}
-.fab--top:hover .fab__inner {
-  transform: translateY(-2px);
-  color: var(--gold-lt);
-}
+
+
 
 /* anel de progresso SVG */
 .fab__progress {
@@ -1693,7 +1684,7 @@ img { max-width: 100%; display: block; }
 ============================================================ */
 .fab--wa {
   background: #1db954;
-  color: #fff;
+  color: var(--ivory);
   box-shadow: 0 4px 18px rgba(29,185,84,.4);
 }
 .fab--wa:hover {
@@ -1771,7 +1762,7 @@ img { max-width: 100%; display: block; }
 
 /* ===== SEÇÃO ===== */
 .avaliacoes {
-  background: var(--white);
+  background: var(--ivory);
   padding: 50px 15px;
 }
 
