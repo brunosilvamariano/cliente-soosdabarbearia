@@ -122,7 +122,7 @@ if (statsEl) counterObs.observe(statsEl);
 
   const SERVICES = [
     {
-      tag:     'Serviço Premium',
+      tag:     'Corte Premium',
       title:   'Corte <span>Premium</span> ',
       desc:    'Corte personalizado com lavagem especial e finalização com produtos de alto padrão. Cada detalhe pensado para o seu estilo.',
       price:   '60',
@@ -130,7 +130,7 @@ if (statsEl) counterObs.observe(statsEl);
       link:    'https://wa.me/5547991597258?text=Olá!%20Gostaria%20de%20agendar%20um%20Corte%20Premium.',
     },
     {
-      tag:     'Serviço Premium',
+      tag:     'Barba Premium',
       title:   'Barba <span>Terapia</span>',
       desc:    'Toalha quente, esfoliação, navalha afiada e hidratação profunda. Um ritual completo de cuidado e relaxamento.',
       price:   '50',
@@ -138,7 +138,7 @@ if (statsEl) counterObs.observe(statsEl);
       link:    'https://wa.me/5547991597258?text=Olá!%20Gostaria%20de%20agendar%20uma%20Barba%20Terapia.',
     },
     {
-      tag:     'Experiência Completa',
+      tag:     'Combo Premium',
       title:   'Nosso <span>Combo</span>',
       desc:    'A experiência total. Corte e barba com todos os cuidados que você merece em uma única sessão premium.',
       price:   '100',
@@ -146,7 +146,7 @@ if (statsEl) counterObs.observe(statsEl);
       link:    'https://wa.me/5547991597258?text=Olá!%20Gostaria%20de%20agendar%20o%20Combo%20Completo.',
     },
     {
-      tag:     'Tratamento',
+      tag:     'Camuflagem de brancos',
       title:   'Camuflagem<br><span>de Brancos</span>',
       desc:    'Redução natural dos fios brancos com técnica precisa para um visual mais jovem, moderno e discreto.',
       price:   '45',
